@@ -5,11 +5,12 @@ description: A new Flutter project.
 environment: 
   sdk: '>=2.19.2 <3.0.0'
 
-dependencies: 
+dependencies:
   cupertino_icons: ^1.0.2
-  get: 4.6.5
-  flutter: 
+  dio: ^5.0.0
+  flutter:
     sdk: flutter
+  get: 4.6.5
   get_storage: ^2.0.3
   google_fonts: ^4.0.3
   hexcolor: ^3.0.1
