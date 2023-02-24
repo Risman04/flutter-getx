@@ -22,7 +22,7 @@ class DashboardView extends GetView<DashboardController> {
                   textAlign: TextAlign.end,
                 ),
                 subtitle: const Text(
-                  "Agung Wahyudi",
+                  "Risman Nurrizki",
                   textAlign: TextAlign.end,
                 ),
                 trailing: Container(
