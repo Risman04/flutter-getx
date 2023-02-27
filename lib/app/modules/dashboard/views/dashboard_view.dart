@@ -74,8 +74,8 @@ class DashboardView extends GetView<DashboardController> {
             children: [
               headline(controller, scrollController),
               technology(controller, scrollController),
-              entertainment(controller, scrollController),
               sports(controller, scrollController),
+              entertainment(controller, scrollController),
             ],
           ),
         ),
