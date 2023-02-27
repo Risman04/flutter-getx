@@ -49,7 +49,7 @@ class LoginController extends GetxController {
         jsonDecode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>;
     if (decodedResponse['success'] == true) {
       authToken.write('token', decodedResponse['access_token']);
-      authToken.write('full_name', response.body['full_name']);
+      authToken.write('full_name', decodedResponse['full_name']);
       Get.offAllNamed('/home');
     } else {
       Get.snackbar('Error', decodedResponse['message'],
