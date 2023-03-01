@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-
+// import 'package:font_awesome_flutter/name_icon_mapping.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../data/entertainment_response.dart';
@@ -19,7 +20,7 @@ class DashboardView extends GetView<DashboardController> {
     final auth = GetStorage();
     return SafeArea(
       child: DefaultTabController(
-        length: 4,
+        length: 5,
         child: Scaffold(
           floatingActionButton: FloatingActionButton(
             onPressed: () async {
@@ -64,6 +65,7 @@ class DashboardView extends GetView<DashboardController> {
                       Tab(text: "Teknologi"),
                       Tab(text: "Olahraga"),
                       Tab(text: "Hiburan"),
+                      Tab(text: "Profile"),
                     ],
                   ),
                 ),
@@ -76,12 +78,18 @@ class DashboardView extends GetView<DashboardController> {
               technology(controller, scrollController),
               sports(controller, scrollController),
               entertainment(controller, scrollController),
+              profile(controller, scrollController),
+              // profile(),
             ],
           ),
         ),
       ),
     );
   }
+
+  
+
+  
 
   FutureBuilder<HeadlineResponse> headline(
       DashboardController controller, ScrollController scrollController) {
@@ -347,7 +355,7 @@ class DashboardView extends GetView<DashboardController> {
     );
   }
 
-  FutureBuilder<sports_response> sports(
+  FutureBuilder<sports_response> sports(  
       DashboardController controller, ScrollController scrollController) {
     return FutureBuilder<sports_response>(
       // Mendapatkan future data headline dari controller
@@ -434,4 +442,160 @@ class DashboardView extends GetView<DashboardController> {
       },
     );
   }
+
+  // Widget profile(BuildContext context, DashboardController controller,
+  //   ScrollController scrollController) {
+  //   double width = MediaQuery.of(context).size.height;
+  //   double height = MediaQuery.of(context).size.height;
+
+  //   return SingleChildScrollView(
+  //     child: Container(
+  //       width: width,
+  //       height: height,
+  //       child: Column(
+  //         mainAxisAlignment: MainAxisAlignment.start,
+  //         children: [
+  //           Center(
+  //             child: Container(
+  //               width: 200,
+  //               height: 200,
+  //               child: Lottie.asset('assets/lotties/male-avatar.json'),
+  //             ),
+  //           ),
+  //           SizedBox(
+  //             height: 25,
+  //           ),
+  //           Center(
+  //               child: Row(
+  //             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  //             children: [
+  //               Container(
+  //                 width: 50,
+  //                 height: 50,
+  //                 decoration:
+  //                     BoxDecoration(shape: BoxShape.circle, color: Colors.blue),
+  //                 child:
+  //                     IconButton(onPressed: () {}, icon: Icon(Icons.add_home)),
+  //               ),
+  //               Container(
+  //                 width: 50,
+  //                 height: 50,
+  //                 decoration:
+  //                     BoxDecoration(shape: BoxShape.circle, color: Colors.blue),
+  //                 child:
+  //                     IconButton(onPressed: () {}, icon: Icon(Icons.add_home)),
+  //               ),
+  //               Container(
+  //                 width: 50,
+  //                 height: 50,
+  //                 decoration:
+  //                     BoxDecoration(shape: BoxShape.circle, color: Colors.blue),
+  //                 child:
+  //                     IconButton(onPressed: () {}, icon: Icon(Icons.add_home)),
+  //               )
+  //             ],
+  //           )),
+  //           SizedBox(
+  //             height: 40,
+  //           ),
+  //           Container(
+  //             padding: EdgeInsets.all(25),
+  //             height: 400,
+  //             width: 300,
+  //             decoration: BoxDecoration(
+  //                 color: Colors.white54,
+  //                 borderRadius: BorderRadius.circular(30),
+  //                 boxShadow: [
+  //                   BoxShadow(
+  //                       color: Color.fromARGB(115, 136, 134, 134),
+  //                       offset: Offset(6.1, 7.1),
+  //                       blurRadius: 5,
+  //                       spreadRadius: 3)
+  //                 ]),
+  //             child: Text(
+  //               "Aku Adalah Anak Pa Jamet Suka Keluar Sambil Mumet, Karena Aku sukannya Style jamet Aku Adalah Anak Pa Jamet Suka Keluar Sambil Mumet, Karena Aku sukannya Style jamet Aku Adalah Anak Pa Jamet Suka Keluar Sambil Mumet, Karena Aku sukannya Style jamet",
+  //               maxLines: 20,
+  //               style: TextStyle(
+  //                 overflow: TextOverflow.ellipsis,
+  //                 fontSize: 20,
+  //               ),
+  //             ),
+  //           )
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
+
+  SingleChildScrollView profile(DashboardController controller, ScrollController scrollController) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        children: [
+          Container(
+            height: 150,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(100),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 3,
+                  blurRadius: 3,
+                  offset: const Offset(0, 3), // changes position of shadow
+                ),
+              ]
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(100),
+              child: Image.network(
+                    "https://picsum.photos/100",
+                height: 150,
+                width: 150,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          const SizedBox(height: 20),
+          const Text(
+            'Risman Nurrizki',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 25),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Image.network('https://cdn-icons-png.flaticon.com/512/2111/2111425.png', height: 35),
+              Image.network('https://cdn-icons-png.flaticon.com/512/3059/3059997.png', height: 35),
+              Image.network('https://cdn-icons-png.flaticon.com/512/733/733579.png', height: 35),
+            ],
+          ),
+          const SizedBox(height: 25),
+          const Text(
+            'About',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.all(15),
+            child: Text(
+              'Hello, introduce my name is Risman Nurrizki. I am a student at SMK Assalaam Bandung who is currently learning web programming. For now I already have fundamental knowledge about several programming languages and several frameworks likes PHP, HTML, CSS, Javascript, Bootstrap, Laravel, Flutter, etc.',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                height: 1.5,
+              ),
+              textAlign: TextAlign.justify,
+            ),
+          ),
+          const SizedBox(height: 30),
+        ],
+      ),
+    );
+  }
+
 }

@@ -10,6 +10,7 @@ dependencies:
   dio: ^5.0.0
   flutter:
     sdk: flutter
+  font_awesome_flutter: '>= 4.7.0'
   get: 4.6.5
   get_storage: ^2.0.3
   google_fonts: ^4.0.3
@@ -25,4 +26,8 @@ dev_dependencies:
 
 flutter: 
   uses-material-design: true
+  
+assets:
+  - assets/img/
+  - assets/lotties/
 
